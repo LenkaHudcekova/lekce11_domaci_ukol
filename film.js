@@ -154,6 +154,45 @@ const vzdalenostFunction = () => {
 }
 vzdalenostFunction()
 
+const faStarElm = document.querySelectorAll (".fa-star")
+
+const countStars = (star) => {
+	if (star===1 || star===2 || star ===3 || star===4 || star===5) {
+		faStarElm.forEach((i, index) => {
+			if(star<=index) {
+				i.classList.remove ("fas")
+				i.classList.add ("far")
+			} else {
+				i.classList.remove ("far")
+				i.classList.add ("fas")
+			}
+		})
+
+	} else {
+		return console.log(`false`)
+	}
+
+}
+
+let ohvezdickovano = 0
+const starLeave = () => {
+	countStars(ohvezdickovano)
+}
+const starEnter = (e) => {
+	countStars(Number(e.target.textContent))
+}
+const starClick = (e) => {
+	ohvezdickovano = Number(e.target.textContent)
+	countStars(ohvezdickovano)
+}
+
+
+faStarElm.forEach ((i)=> {
+	i.addEventListener("click",starClick)
+	i.addEventListener("mouseenter", starEnter)
+	i.addEventListener("mouseleave", starLeave)
+})
+
 
 
 

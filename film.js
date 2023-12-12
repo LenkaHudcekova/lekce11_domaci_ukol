@@ -120,10 +120,9 @@ const filmy = [
 
 
 const idFilmValue = location.hash.substring(1)
-console.log(idFilmValue)
 
 const film = filmy.find(f =>f.id ===idFilmValue)
-console.log(film)
+
 
 const titleElm = document.querySelector(".card-title")
 const textElm = document.querySelector(".card-text")
@@ -131,5 +130,35 @@ const plakatElm = document.querySelector("img")
 titleElm.textContent = film.nazev
 textElm.textContent = film.popis
 plakatElm.src = film.plakat.url
+
+const premieraElm = document.querySelector("#premiera")
+const premieraDate = dayjs(film.premiera)
+console.log(premieraDate)
+premieraElm.innerHTML = `Premiéra <strong>${premieraDate.format('D. M. YYYY')}</strong>`
+const now = dayjs()
+console.log (now)
+const vzdalenost = premieraDate.diff (now,"days")
+console.log(vzdalenost)
+
+const vzdalenostFunction = () => {
+	if (vzdalenost===-1) {
+		return premieraElm.innerHTML += `, což bylo před ${Math.abs(vzdalenost)} dnem.`
+	} else if (vzdalenost<-1) {
+		return premieraElm.innerHTML += `, což bylo před ${Math.abs(vzdalenost)} dny.`
+	} else if (vzdalenost ===0) {
+		return premieraElm.innerHTML += `, což je dnes.`
+	} else if (vzdalenost===1) {
+		return premieraElm.innerHTML += `, což je za ${vzdalenost} den.`
+	} else if (vzdalenost>1 && vzdalenost<5) {
+		return premieraElm.innerHTML += `, což je za ${Math.abs(vzdalenost)} dny.`
+	} return premieraElm.innerHTML += `, což je za ${Math.abs(vzdalenost)} dní.`
+}
+vzdalenostFunction()
+
+
+
+
+
+
 
 

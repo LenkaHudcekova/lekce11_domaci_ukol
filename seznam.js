@@ -123,11 +123,11 @@ seznamFilmuElm.textContent = ""
 filmy.forEach ((i) => {
 		seznamFilmuElm.innerHTML += `
 	<div class="col">
-		<div class="card">
+		<div class="card" style="height: 100%">
 			<img
 			src=${i.plakat.url}
-			width="780"
-			height="520"
+			width="${780}"
+			height="${520}"
 			class="card-img-top"
 			alt="plakát"
 			/>

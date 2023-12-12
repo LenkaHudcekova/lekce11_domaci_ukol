@@ -107,7 +107,7 @@ const filmy = [
 		id: 'harry-potter-1',
 		nazev: 'Harry Potter a Kámen mudrců',
 		plakat: {
-			url: 'https://www.themoviedb.org/t/p/original/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg',
+			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/000/001/1549_54f01f.jpg',
 			sirka: 420,
 			vyska: 592,
 		},
@@ -134,12 +134,13 @@ filmy.forEach ((i) => {
 			<div class="card-body">
 			<h5 class="card-title">${i.nazev}</h5>
 			<p class="card-text">${i.ochutnavka}</p>
-			<a href="film.html" class="btn btn-primary">Přehrát</a>
+			<a href="film.html#${i.id}" class="btn btn-primary">Přehrát</a>
 			</div>
 		</div>
 	</div>
 	` 
 })
+
 
 
 

@@ -133,12 +133,11 @@ plakatElm.src = film.plakat.url
 
 const premieraElm = document.querySelector("#premiera")
 const premieraDate = dayjs(film.premiera)
-console.log(premieraDate)
+
 premieraElm.innerHTML = `Premiéra <strong>${premieraDate.format('D. M. YYYY')}</strong>`
 const now = dayjs()
-console.log (now)
 const vzdalenost = premieraDate.diff (now,"days")
-console.log(vzdalenost)
+
 
 const vzdalenostFunction = () => {
 	if (vzdalenost===-1) {
@@ -150,8 +149,8 @@ const vzdalenostFunction = () => {
 	} else if (vzdalenost===1) {
 		return premieraElm.innerHTML += `, což je za ${vzdalenost} den.`
 	} else if (vzdalenost>1 && vzdalenost<5) {
-		return premieraElm.innerHTML += `, což je za ${Math.abs(vzdalenost)} dny.`
-	} return premieraElm.innerHTML += `, což je za ${Math.abs(vzdalenost)} dní.`
+		return premieraElm.innerHTML += `, což je za ${vzdalenost} dny.`
+	} return premieraElm.innerHTML += `, což je za ${vzdalenost} dní.`
 }
 vzdalenostFunction()
 
